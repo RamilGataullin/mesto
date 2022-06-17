@@ -6,7 +6,10 @@
   line-height: 22px;
   color: #FFFFFF;
   grid-area: profession;
-  
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: start;
 }
 
 @media (max-width: 1023px) {
@@ -15,7 +18,7 @@
     font-size: 14px;
     line-height: 17px;
     text-align: center;
-    justify-self: flex-end;
+    /* justify-self: flex-end; */
     
   } 
 }

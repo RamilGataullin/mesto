@@ -8,13 +8,16 @@
     color: #FFFFFF;
     grid-area: name;
     align-self: flex-end;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: start;
 }
 
 @media (max-width: 1023px) {
     .profile__name {
         font-size: 27px;
         line-height: 33px;
-        text-align: center;
     } 
   }
 

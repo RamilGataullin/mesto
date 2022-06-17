@@ -4,6 +4,7 @@
     background-image: url(../../../images/VectorPlus.svg);
     background-position: center;
     background-color: #000000;
+    background-size: 22px;
     border: 2px solid #FFFFFF;
     border-radius: 2px;
     background-repeat: no-repeat;
@@ -21,5 +22,8 @@
 @media (max-width: 767px) {
     .profile__add-button {
         width: 282px;
+        background-size: 16px;
     } 
   }
+
+  

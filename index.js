@@ -1,11 +1,12 @@
-const profileEditButton = document.querySelector('.profile__edit-button');
+const profileEditBtn = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
 const popupClose = document.querySelector('.popup__close');
 const nameInput = document.querySelector('.popup__input_type-name');
 const jobInput = document.querySelector('.popup__input_type-job');
 const profileName = document.querySelector('.profile__name');
 const profilejob = document.querySelector('.profile__job');
-const popupForm = document.querySelector('.popup__form');
+const formProfile = document.querySelector('.popup__form');
+
 
 function openPopup () {
     popup.classList.add('popup_opened');
@@ -24,6 +25,6 @@ function hadleSubmitProfile (evt) {
     closePopup();
 }
 
-profileEditButton.addEventListener('click', openPopup);
+profileEditBtn.addEventListener('click', openPopup);
 popupClose.addEventListener('click', closePopup);
-popupForm.addEventListener('submit', hadleSubmitProfile);
+formProfile.addEventListener('submit', hadleSubmitProfile);

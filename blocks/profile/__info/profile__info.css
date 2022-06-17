@@ -6,7 +6,8 @@
    "profession .";
    row-gap: 16px;
    column-gap: 18px;
-   margin-right: auto;              
+   margin-right: auto;
+   max-width: 394px;              
 }
 
 
