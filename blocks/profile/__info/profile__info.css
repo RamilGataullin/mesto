@@ -3,9 +3,9 @@
   display: grid;
    grid-template-areas: 
    "name edit-button" 
-   "profession ." ;
+   "profession .";
    row-gap: 16px;
-   column-gap: 18px; 
+   column-gap: 18px;
    margin-right: auto;              
 }
 
