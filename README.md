@@ -1,5 +1,5 @@
 # Проект: Место
-* [Ссылка на проект Mesto] ()
+* [Ссылка на проект Mesto] (https://ramilgataullin.github.io/mesto/index.html)
 
 
 ### Используемые технологии
