@@ -1,4 +1,4 @@
-.elements {
+.elements__list {
     list-style-type: none;
     margin: 0 auto;
     max-width: 880px;
@@ -9,3 +9,9 @@
     padding: 51px 19px 0;
     justify-content: center;
 }
+
+@media (max-width: 767px) {
+    .elements__list {
+        padding: 36px 19px 0;
+    } 
+  }

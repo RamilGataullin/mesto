@@ -14,19 +14,9 @@
 
 @media (max-width: 1023px) {
   .profile__job {
-    font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     text-align: center;
-    /* justify-self: flex-end; */
-    
   } 
 }
 
-/* @media (max-width: 767px) {
-    .profile__job {
-      text-align: center;
-      justify-self: flex-end;
-      
-    } 
-  } */
