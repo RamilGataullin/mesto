@@ -1,11 +1,9 @@
 const profileEditBtn = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
+const popups = document.querySelectorAll('.popup')
 const popupProfile = document.querySelector('.popup_type_profile');
 const popupPlace = document.querySelector('.popup_type_place');
 const popupImage =document.querySelector('.popup_type_image');
-const popupCloseProfile = popupProfile.querySelector('.popup__close');
-const popupClosePlace = popupPlace.querySelector('.popup__close');
-const popupCloseImage = popupImage.querySelector('.popup__close');
 const nameInput = document.querySelector('.popup__input_form-profile_name');
 const jobInput = document.querySelector('.popup__input_form-profile_job');
 const profileName = document.querySelector('.profile__name');
@@ -18,7 +16,7 @@ const elementsList = document.querySelector('.elements__list');
 const addButton = document.querySelector('.profile__add-button');
 const image = document.querySelector('.popup__photo');
 const titleImage = document.querySelector('.popup__subtitle');
-
+const elementTemplate = document.querySelector('#element').content;
 
 const initialElements = [
     
@@ -63,7 +61,7 @@ function closePopup (popup) {
     popup.classList.remove('popup_opened')
 }
 
-function hadleSubmitProfile (evt) {
+function handleSubmitProfile (evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profilejob.textContent = jobInput.value;
@@ -71,13 +69,13 @@ function hadleSubmitProfile (evt) {
 }
 
 function generateElement (name, link) {
-    const elementTemplate = document.querySelector('#element').content;
     const element = elementTemplate.querySelector('.element').cloneNode(true);
     const photo = element.querySelector('.element__photo');
     const title = element.querySelector('.element__title');
     const deleteButton = element.querySelector('.element__delete');
     const likeButton = element.querySelector('.element__like');
     photo.src = link;
+    photo.alt = name;
     title.textContent = name;
 
     deleteButton.addEventListener('click', function() {
@@ -89,7 +87,7 @@ function generateElement (name, link) {
     })
 
     photo.addEventListener('click', () => {
-        hadlePopupImage(name, link);
+        handlePopupImage(name, link);
     })
 
     return element;
@@ -99,7 +97,7 @@ initialElements.forEach(function(item){
     elementsList.append(generateElement(item.name, item.link))
 })
 
-function hadlePopupImage (name, link) {
+function handlePopupImage (name, link) {
     image.src = link;
     image.alt = name
     titleImage.textContent = name;
@@ -110,6 +108,7 @@ function submitElement (evt) {
     evt.preventDefault();
     elementsList.prepend(generateElement(placeInput.value, linkInput.value));
     closePopup(popupPlace);
+    formPlace.reset();
 }
 
 profileEditBtn.addEventListener('click', () => {
@@ -120,18 +119,14 @@ addButton.addEventListener('click', ()=> {
     openPopup(popupPlace);
 });
 
-popupCloseProfile.addEventListener('click', () => {
-    closePopup(popupProfile);
-});
+popups.forEach((popup) => {
+    popup.addEventListener('click', (evt) => {
+        if (evt.target.classList.contains('popup__close')) {
+            closePopup(popup)
+        }
+    })
+ }) 
 
-popupClosePlace.addEventListener('click', () => {
-    closePopup(popupPlace);
-});
-
-popupCloseImage.addEventListener('click', () => {
-    closePopup(popupImage);
-});
-
-formProfile.addEventListener('submit', hadleSubmitProfile);
+formProfile.addEventListener('submit', handleSubmitProfile);
 formPlace.addEventListener('submit', submitElement);
 
