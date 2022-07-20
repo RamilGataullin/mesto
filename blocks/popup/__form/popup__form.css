@@ -1,9 +1,3 @@
 /* .popup__form {
-   display: block;
-}
-
-@media (max-width: 767px) {
-    .popup__form {
-        
-  }
+   position: relative;
 } */
