@@ -1,6 +1,6 @@
 //определяем константы 
 const profileEditBtn = document.querySelector('.profile__edit-button');
-const popup = document.querySelector('.popup');
+// const popup = document.querySelector('.popup');
 const popups = document.querySelectorAll('.popup')
 const popupProfile = document.querySelector('.popup_type_profile');
 const popupPlace = document.querySelector('.popup_type_place');
@@ -136,11 +136,15 @@ function closeKeyEscape(evt) {
 }
 
 profileEditBtn.addEventListener('click', () => {
-    openPopup(popupProfile), getProfileData(), validateForm(popupProfile, config), openPopup(popupProfile)
+    openPopup(popupProfile);
+    getProfileData();
+    validateForm(popupProfile, config);
+    openPopup(popupProfile);
 });
 
 addButton.addEventListener('click', () => {
-    clearForm(popupPlace, config), openPopup(popupPlace)
+    clearForm(popupPlace, config);
+    openPopup(popupPlace);
 });
 
 formProfile.addEventListener('submit', handleSubmitProfile);
