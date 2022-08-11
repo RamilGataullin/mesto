@@ -1,6 +1,9 @@
-//определяем константы 
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+import {initialElements, config} from "./config.js";
+export {openPopup, popupImage, titleImage, image}
+
 const profileEditBtn = document.querySelector('.profile__edit-button');
-// const popup = document.querySelector('.popup');
 const popups = document.querySelectorAll('.popup')
 const popupProfile = document.querySelector('.popup_type_profile');
 const popupPlace = document.querySelector('.popup_type_place');
@@ -17,46 +20,11 @@ const elementsList = document.querySelector('.elements__list');
 const addButton = document.querySelector('.profile__add-button');
 const image = document.querySelector('.popup__photo');
 const titleImage = document.querySelector('.popup__subtitle');
-const elementTemplate = document.querySelector('#element').content;
 
-//добавляем константу с массивом
-const initialElements = [
-
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    },
-
-];
-
-//создаем функцию открытия попапов
 function openPopup(popup) {
-    //функция добавляет класс popup_opened
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closeKeyEscape)
 }
-
-enableValidation(config);
 
 function getProfileData() {
     nameInput.value = profileName.textContent;
@@ -76,40 +44,14 @@ function handleSubmitProfile(evt) {
 }
 
 function generateElement(name, link) {
-    const element = elementTemplate.querySelector('.element').cloneNode(true);
-    const photo = element.querySelector('.element__photo');
-    const title = element.querySelector('.element__title');
-    const deleteButton = element.querySelector('.element__delete');
-    const likeButton = element.querySelector('.element__like');
-    photo.src = link;
-    photo.alt = name;
-    title.textContent = name;
-
-    deleteButton.addEventListener('click', function () {
-        element.remove();
-    })
-
-    likeButton.addEventListener('click', function (evt) {
-        likeButton.classList.toggle('element__like_active');
-    })
-
-    photo.addEventListener('click', () => {
-        handlePopupImage(name, link);
-    })
-
-    return element;
+  const card = new Card(name, link, '#element')
+  return card.render();
 }
 
 initialElements.forEach(function (item) {
     elementsList.append(generateElement(item.name, item.link))
 })
 
-function handlePopupImage(name, link) {
-    image.src = link;
-    image.alt = name
-    titleImage.textContent = name;
-    openPopup(popupImage);
-}
 
 function submitElement(evt) {
     evt.preventDefault();
@@ -136,17 +78,22 @@ function closeKeyEscape(evt) {
 }
 
 profileEditBtn.addEventListener('click', () => {
+    formProfileValidition.clearForm();
     openPopup(popupProfile);
     getProfileData();
-    validateForm(popupProfile, config);
     openPopup(popupProfile);
 });
 
 addButton.addEventListener('click', () => {
-    clearForm(popupPlace, config);
+    formPlaceValidition.clearForm();
     openPopup(popupPlace);
 });
 
 formProfile.addEventListener('submit', handleSubmitProfile);
 formPlace.addEventListener('submit', submitElement);
 
+const formProfileValidition = new FormValidator(config, formProfile);
+formProfileValidition.enableValidation();
+
+const formPlaceValidition = new FormValidator(config, formPlace);
+formPlaceValidition.enableValidation();
