@@ -15,6 +15,7 @@ export default class Card {
         this._deleteButtton = this._cardElement.querySelector('.element__delete');
         this._likeButton = this._cardElement.querySelector('.element__like');
         this._photo.src = this._link;
+        this._photo.alt = this._name;
       }
 
     _setEventListeners() {
@@ -28,7 +29,8 @@ export default class Card {
     }
 
     _handleDeleteClick() {
-        this._cardElement.remove();  
+        this._cardElement.remove();
+        this._cardElement = null;
     }
 
     _handlePopupImageClick() {
