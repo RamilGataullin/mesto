@@ -1,3 +1,25 @@
+const profileEditBtn = document.querySelector('.profile__edit-button');
+const nameInput = document.querySelector('.popup__input_form-profile_name');
+const jobInput = document.querySelector('.popup__input_form-profile_job');
+const formProfile = document.querySelector('.popup__form_type_profile');
+const formPlace = document.querySelector('.popup__form_type_place');
+const placeInput = document.querySelector('.popup__input_form-place_name');
+const linkInput = document.querySelector('.popup__input_form-place_link');
+const popupProfileAddButton = document.querySelector('.profile__add-button');
+
+
+const selectors = {
+    elementsList: '.elements__list',
+    imageFull: '.popup__photo',
+    titleImage: '.popup__subtitle',
+    popupImage: '.popup_type_image',
+    popupPlace: '.popup_type_place',
+    popupProfile: '.popup_type_profile',
+    profileName: '.profile__name',
+    profilejob: '.profile__job'
+};
+
+
 const initialElements = [
 
     {
@@ -35,4 +57,4 @@ const config = {
     errorClass: 'error'
 }
 
-export {initialElements, config}
+export {initialElements, config, profileEditBtn, nameInput, jobInput, formProfile, formPlace, placeInput, linkInput, popupProfileAddButton, selectors }

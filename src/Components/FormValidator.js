@@ -43,6 +43,9 @@ export default class FormValidator {
 
 
     enableValidation() {
+        this._formElement.addEventListener('submit', (evt) => {
+            evt.preventDefault()
+        });
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._checkInputValidity(inputElement);
@@ -56,7 +59,6 @@ export default class FormValidator {
         if (ifButtonElementEnabled === undefined) {
             ifButtonElementEnabled = false;
         }
-        this._formElement.reset();
         this._inputList.forEach((inputElement) => {
             this._hideInputError(inputElement);
         })

@@ -1,9 +1,8 @@
-import {openPopup, popupImage, titleImage, image } from './index.js'
-
 export default class Card {
-    constructor(name, link, templateSelector){
+    constructor(name, link, templateSelector, handleCardClick){
         this._name = name;
         this._link = link;
+        this._handleCardClick = handleCardClick;
         this._templateSelector = templateSelector;
     }
 
@@ -21,7 +20,7 @@ export default class Card {
     _setEventListeners() {
         this._likeButton.addEventListener('click', () => this._handleLikeClick());
         this._deleteButtton.addEventListener('click', () => this._handleDeleteClick());
-        this._photo.addEventListener('click', () => this._handlePopupImageClick());
+        this._photo.addEventListener('click', () => this._handleCardClick(this._name, this._link));
     }
 
     _handleLikeClick() {
@@ -31,13 +30,6 @@ export default class Card {
     _handleDeleteClick() {
         this._cardElement.remove();
         this._cardElement = null;
-    }
-
-    _handlePopupImageClick() {
-        image.src = this._link;
-        image.alt = this._name;
-        titleImage.textContent = this._name;
-        openPopup(popupImage);
     }
 
     render() {
