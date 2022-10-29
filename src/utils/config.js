@@ -10,8 +10,6 @@ const popupProfileAddButton = document.querySelector('.profile__add-button');
 
 const selectors = {
     elementsList: '.elements__list',
-    imageFull: '.popup__photo',
-    titleImage: '.popup__subtitle',
     popupImage: '.popup_type_image',
     popupPlace: '.popup_type_place',
     popupProfile: '.popup_type_profile',

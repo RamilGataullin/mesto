@@ -32,7 +32,7 @@ selectors.elementsList);
 cardSection.renderItems();
 
 const popupWithImage = new PopupWithImage({
-    popupSelector: selectors.popupImage
+    popupSelector: selectors.popupImage,
 });
 popupWithImage.setEventListeners();
 
@@ -44,14 +44,10 @@ const userInfo = new UserInfo({
      aboutSelector: selectors.profilejob
 });
 
-const profileForm = new PopupWithForm(selectors.popupProfile, (evt) => {
-    //evt.preventDefault();
-    const inputs = {
-    name: nameInput.value,
-    about: jobInput.value
+const profileForm = new PopupWithForm(selectors.popupProfile, (inputs) => {
+    userInfo.setUserInfo(inputs);
   }
-  userInfo.setUserInfo(inputs)
-});
+);
 profileForm.setEventListeners();
 
 function generateElement(item) {
