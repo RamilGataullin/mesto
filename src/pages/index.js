@@ -9,12 +9,8 @@ import UserInfo from '../Components/UserInfo.js';
 import {initialElements,
         config, 
         profileEditBtn, 
-        nameInput, 
-        jobInput, 
         formProfile, 
         formPlace, 
-        placeInput, 
-        linkInput, 
         popupProfileAddButton, 
         selectors
 } from "../utils/config.js";
@@ -60,16 +56,15 @@ function handleCardClick(name, link) {
 }
 
 
-function handleCardFormSubmit() {
-    cardSection.addItem(generateElement({name: placeInput.value, link: linkInput.value}));
+function handleCardFormSubmit(inputs) {
+    cardSection.addItem(generateElement(inputs));
 }
 
 
 profileEditBtn.addEventListener('click', () => {
-    formProfileValidition.clearForm();
+    formProfileValidition.clearForm();  
     const userInfoValue = userInfo.getUserInfo();
-    nameInput.value = userInfoValue.name;
-    jobInput.value = userInfoValue.about;
+    profileForm.setInputValues(userInfoValue)
     profileForm.open();
 });
 
