@@ -1,7 +1,10 @@
 const profileEditBtn = document.querySelector('.profile__edit-button');
 const formProfile = document.querySelector('.popup__form_type_profile');
 const formPlace = document.querySelector('.popup__form_type_place');
+const formAvatar = document.querySelector('.popup__form_type_avatar')
 const popupProfileAddButton = document.querySelector('.profile__add-button');
+
+const profileAvatarBtn = document.querySelector('.profile__avatar-button');
 
 
 const selectors = {
@@ -10,38 +13,11 @@ const selectors = {
     popupPlace: '.popup_type_place',
     popupProfile: '.popup_type_profile',
     profileName: '.profile__name',
-    profilejob: '.profile__job'
+    profilejob: '.profile__job',
+    popupAvatar: '.popup_type_avatar',
+    profileAvatar: '.profile__avatar',
+    popupDelete: '.popup_type_delete'
 };
-
-
-const initialElements = [
-
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    },
-
-];
 
 const config = {
     formSelector: '.popup__form',
@@ -51,4 +27,4 @@ const config = {
     errorClass: 'error'
 }
 
-export {initialElements, config, profileEditBtn, formProfile, formPlace, popupProfileAddButton, selectors }
+export {config, profileEditBtn, formProfile, formPlace, formAvatar, popupProfileAddButton, profileAvatarBtn, selectors }

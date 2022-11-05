@@ -15,11 +15,14 @@
         </header>
         <main class="content">
             <section class="profile">
-                <img src="<%=require('./images/image.jpg')%>" alt="Жак-Ив Кусто" class="profile__avatar">
+                <div class="profile__container-avatar">
+                    <img src="" alt="" class="profile__avatar">
+                    <button type="button" class="profile__avatar-button"></button>
+                </div>
                 <div class="profile__info">
                     <button type="button" class="profile__edit-button"></button>
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <p class="profile__job">Исследователь океана</p>
+                    <h1 class="profile__name"></h1>
+                    <p class="profile__job"></p>
                 </div>
                 <button type="button" class="profile__add-button"></button>
             </section>
@@ -46,6 +49,18 @@
                 </form>
             </div>
         </div>
+        <div class="popup popup_type_avatar">
+            <div class="popup__container">
+                <button type="button" class="popup__close"></button>
+                <h3 class="popup__title">Обновить аватар</h3>
+                <form name="avatar" class="popup__form popup__form_type_avatar" novalidate>
+                    <input name="avatar" id="avatar-link" type="url" placeholder="Cсылка на картинку"
+                        class="popup__input popup__input_form-avatar_link" required>
+                    <span id="avatar-link-error" class="error"></span>
+                    <button type="submit" class="popup__button">Сохранить</button>
+                </form>
+            </div>
+        </div>
         <div class="popup popup_type_place">
             <div class="popup__container">
                 <button type="button" class="popup__close"></button>
@@ -61,6 +76,15 @@
                 </form>
             </div>
         </div>
+            <div class="popup popup_type_delete">
+                <div class="popup__container">
+                    <button type="button" class="popup__close"></button>
+                    <h3 class="popup__title">Вы уверены?</h3>
+                    <form name="delete" class="popup__form popup__form_type_delete" novalidate>
+                        <button type="submit" class="popup__button">Да</button>
+                    </form>
+                </div>    
+        </div>
         <div class="popup popup_type_image">
             <div class="popup__container-image">
                 <button type="button" class="popup__close"></button>
@@ -74,7 +98,10 @@
                 <button type="button" class="element__delete"></button>
                 <div class="element__description">
                     <h2 class="element__title"></h2>
-                    <button type="button" class="element__like"></button>
+                    <div class="element__container-like">
+                        <button type="button" class="element__like"></button>
+                        <span id="counter" class="element__counter">0</span>
+                    </div>
                 </div>
             </li>
         </template>
