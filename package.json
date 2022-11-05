@@ -1,7 +1,7 @@
 {
   "name": "mesto",
   "version": "1.0.0",
-  "description": "* [Ссылка на проект Mesto] (https://ramilgataullin.github.io/mesto/index.html)",
+  "description": "* [Ссылка на проект Mesto] (git@github.com:RamilGataullin/mesto.git)",
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && webpack --mode production",
