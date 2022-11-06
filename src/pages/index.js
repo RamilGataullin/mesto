@@ -1,11 +1,11 @@
 import './index.css';
-import Card from "../Components/Card.js";
-import Section from "../Components/Section.js";
-import FormValidator from "../Components/FormValidator.js";
-import PopupWithImage from '../Components/PopupWithImage.js';
-import PopupWithForm from '../Components/PopupWithForm.js';
-import UserInfo from '../Components/UserInfo.js';
-import Api from '../Components/Api.js';
+import Card from "../components/Card.js";
+import Section from "../components/Section.js";
+import FormValidator from "../components/FormValidator.js";
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
+import Api from '../components/Api.js';
 
 import {
         config, 
@@ -17,7 +17,7 @@ import {
         profileAvatarBtn, 
         selectors
 } from "../utils/config.js";
-import PopupWithConfirmation from '../Components/PopupWithConfirmation';
+import PopupWithConfirmation from '../components/PopupWithConfirmation';
 
 const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-52',
@@ -141,7 +141,7 @@ function handleLikeClick(card) {
     api.removeLike(card.cardId)
     .then((res) => {
       card.likes = res.likes;
-      card.removeLike(res.likes);
+      card.toggleLikeState(res.likes);
     })
     .catch((err) => {
       console.log(err);
@@ -150,7 +150,7 @@ function handleLikeClick(card) {
     api.addLike(card.cardId)
     .then((res) => {
       card.likes = res.likes;
-      card.addLike(res.likes);
+      card.toggleLikeState(res.likes);
     })
     .catch((err) => {
       console.log(err);
